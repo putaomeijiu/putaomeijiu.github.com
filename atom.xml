@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[blog]]></title>
+  <title><![CDATA[葡萄美酒夜光杯]]></title>
   <link href="http://putaomeijiu.github.com/atom.xml" rel="self"/>
   <link href="http://putaomeijiu.github.com/"/>
-  <updated>2013-03-14T09:27:01+08:00</updated>
+  <updated>2013-03-14T09:38:51+08:00</updated>
   <id>http://putaomeijiu.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[葡萄美酒]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -108,38 +108,6 @@
     &gt;git commit -m 'your message'
     &gt;git push origin source
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My First Octopress2]]></title>
-    <link href="http://putaomeijiu.github.com/blog/2013/03/13/my-first-octopress2/"/>
-    <updated>2013-03-13T00:00:00+08:00</updated>
-    <id>http://putaomeijiu.github.com/blog/2013/03/13/my-first-octopress2</id>
-    <content type="html"><![CDATA[<h1>GitHub上安装Octopress心得</h1>
-
-<h2>起因</h2>
-
-<p>年前的时候，一个叫做“<a href="http://octopress.org/">Octopress</a>”的博客平台（或许应该叫系统）进入我的视野，号称是Geek的最爱，有兴趣的自己去百度。说起来，从博客这个东西刚兴起的时候就注册过，也保持着几年一篇的速率更新着，中间民换过三四次服务商，却无一例外没有坚持下去。每次原因各不相同，但总之是各种麻烦、各种不方便。加上之前虽对Github有所了解，却在年前由于铁道部的关系，引起了强烈兴趣，于是萌生了尝试想法。</p>
-
-<h2>其中曲折</h2>
-
-<p>在对Github几乎一无所知，对Ruby一无所知的背景上，来尝试这些东西，各种失败。加之年前确实时间紧张，心情郁闷了，结果就不了了之了。年后趁着发烧无心工作，终于初步搞定。把一些心得记录下来，一方面作为笔记供以后查阅，一方面供大家参考。</p>
-
-<h2>步骤</h2>
-
-<h3>一、安装并配置git</h3>
-
-<ul>
-<li>注册github账号</li>
-<li>下载并安装git</li>
-<li>打开Git Bash，输入：</li>
-<li><pre><code>  &lt;ssh-keygen -t rsa -C "youremail@youremail.com"&gt;
-</code></pre></li>
-<li>输入两遍密码，找到<code>C:\Documents and Settings\yourusername\.ssh\id_rsa.pub</code>并用词本打开（不同系统，路径可能不同），复制全部。</li>
-<li>到github网站选择“Account Settings”>“SSH Keys”>“Add SSH Key”，粘贴刚刚复制的内容。</li>
-</ul>
-
 ]]></content>
   </entry>
   
