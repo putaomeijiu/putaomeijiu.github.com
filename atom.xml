@@ -4,7 +4,7 @@
   <title><![CDATA[葡萄美酒夜光杯]]></title>
   <link href="http://putaomeijiu.github.com/atom.xml" rel="self"/>
   <link href="http://putaomeijiu.github.com/"/>
-  <updated>2013-03-14T09:38:51+08:00</updated>
+  <updated>2013-03-14T09:43:02+08:00</updated>
   <id>http://putaomeijiu.github.com/</id>
   <author>
     <name><![CDATA[葡萄美酒]]></name>
@@ -28,7 +28,7 @@
 
 <h2>步骤</h2>
 
-<h3>一、安装并配置git</h3>
+<h3>1、安装并配置git</h3>
 
 <ul>
 <li>注册github账号</li>
@@ -43,7 +43,7 @@
 </ul>
 
 
-<h3>安装Ruby及DevKit</h3>
+<h3>2、安装Ruby及DevKit</h3>
 
 <ul>
 <li>Ruby安装用<a href="http://rubyinstaller.org/">Ruby Installer</a>，可能要选择版本号跟Octopress要求一致（具体记不清，因为这一步是年前搞的）</li>
@@ -62,7 +62,7 @@
 </ul>
 
 
-<h3>安装Octopress</h3>
+<h3>3、安装Octopress</h3>
 
 <ul>
 <li>获取：在Git Bash中执行：<code>git clone git://github.com/imathis/octopress.git blog</code>。</li>
@@ -75,7 +75,7 @@
 </ul>
 
 
-<h3>修改配置</h3>
+<h3>4、修改配置</h3>
 
 <ul>
 <li>将git的bin目录添加到系统环境变量中</li>
@@ -91,7 +91,7 @@
 </ul>
 
 
-<h3>写日志啦：</h3>
+<h3>5、写日志啦：</h3>
 
 <ul>
 <li>rake new_post[&#8220;title&#8221;]，然后在<code>source/_post</code>目录下修改刚刚的.markdown文件，</li>
@@ -101,7 +101,7 @@
 </ul>
 
 
-<h3>最后一步：</h3>
+<h3>6、最后一步：</h3>
 
 <pre><code>    &gt;git status
     &gt;git add .
