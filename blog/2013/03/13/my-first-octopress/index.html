@@ -106,16 +106,21 @@
 <ul>
 <li>注册github账号</li>
 <li>下载并安装git</li>
-<li>打开Git Bash，输入：</li>
-<li><pre><code>  &lt;ssh-keygen -t rsa -C "youremail@youremail.com"&gt;
+<li><p>打开Git Bash，输入：</p>
+
+<pre><code>  ssh-keygen -t rsa -C "youremail@youremail.com"
 </code></pre></li>
 <li>输入两遍密码，找到<code>C:\Documents and Settings\yourusername\.ssh\id_rsa.pub</code>并用词本打开（不同系统，路径可能不同），复制全部。</li>
 <li>到github网站选择“Account Settings”>“SSH Keys”>“Add SSH Key”，粘贴刚刚复制的内容。</li>
-<li>创建一个新的Repository，假如期望得到的博客首页为http://yourname.github.com，那么Repository Name就必须为yourname.github.com。
+<li>创建一个新的Repository，假如期望得到的博客首页为http://yourname.github.com，那么Repository Name就必须为yourname.github.com。</li>
+</ul>
 
-<h3>安装Ruby及DevKit</h3></li>
+
+<h3>安装Ruby及DevKit</h3>
+
+<ul>
 <li>Ruby安装用<a href="http://rubyinstaller.org/">Ruby Installer</a>，可能要选择版本号跟Octopress要求一致（具体记不清，因为这一步是年前搞的）</li>
-<li>同时下载<a href="http://rubyinstaller.org/downloads/">DevKit</a>并安装。DevKit的安装步骤如下：
+<li>安装<a href="http://rubyinstaller.org/downloads/">DevKit</a>。步骤如下：
 
 <ul>
 <li>将DevKit解压到某一路径中，如<code>C:\DevKit</code></li>
@@ -123,11 +128,59 @@
 
 <pre><code>&gt;cd C:\DevKit
 &gt;ruby dk.rb init
+&gt;gem install rdiscount --platform=ruby （这一步不确定是否需要，挺耗时间）
 </code></pre></li>
 </ul>
 </li>
 </ul>
 
+
+<h3>安装Octopress</h3>
+
+<ul>
+<li>获取：在Git Bash中执行：<code>git clone git://github.com/imathis/octopress.git blog</code>。</li>
+<li><p>在<code>C:\Documents and Settings\yourusername\blog\</code>路径下执行命令行工作</p>
+
+<pre><code>  &gt;gem install bundler
+  &gt;bundle install
+  &gt;rake install
+</code></pre></li>
+</ul>
+
+
+<h3>修改配置</h3>
+
+<ul>
+<li>将git的bin目录添加到系统环境变量中</li>
+<li><p>设置语言环境：</p>
+
+<pre><code>  &gt;set LC_ALL=zh_CN.UTF-8
+  &gt;set LANG=zh_CN.UTF-8
+</code></pre></li>
+<li>将octopress文件夹下的_config.yml的编码改为UTF-8</li>
+<li>修改_config.yml，修改url、title、subtitle、author等</li>
+<li>到ruby的安装目录<code>\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\</code>，找到convertible.rb这个文件，记事本打开，找到<code>self.content = File.read（File.join（base， name））</code>，改成<code>self.content = File.read（File.join（base， name）， :encoding =&gt; "utf-8"）</code></li>
+<li>命令行工具，在blog目录下执行<code>rake setup_github_pages</code>，根据提示输入网址，也可以在gibhub网站上直接从SSH上复制</li>
+</ul>
+
+
+<h3>写日志啦：</h3>
+
+<ul>
+<li>rake new_post[&#8220;title&#8221;]，然后在<code>source/_post</code>目录下修改刚刚的.markdown文件，</li>
+<li>rake generate</li>
+<li>rake preview</li>
+<li>rake deploy</li>
+</ul>
+
+
+<h3>最后一步：</h3>
+
+<pre><code>    &gt;git status
+    &gt;git add .
+    &gt;git commit -m 'your message'
+    &gt;git push origin source
+</code></pre>
 </div>
 
 
