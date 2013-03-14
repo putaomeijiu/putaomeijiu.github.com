@@ -4,7 +4,7 @@
   <title><![CDATA[葡萄美酒夜光杯]]></title>
   <link href="http://putaomeijiu.github.com/atom.xml" rel="self"/>
   <link href="http://putaomeijiu.github.com/"/>
-  <updated>2013-03-14T09:43:02+08:00</updated>
+  <updated>2013-03-14T09:46:12+08:00</updated>
   <id>http://putaomeijiu.github.com/</id>
   <author>
     <name><![CDATA[葡萄美酒]]></name>
@@ -20,7 +20,7 @@
     <id>http://putaomeijiu.github.com/blog/2013/03/13/my-first-octopress</id>
     <content type="html"><![CDATA[<h2>起因</h2>
 
-<p>年前的时候，一个叫做“<a href="http://octopress.org/">Octopress</a>”的博客平台（或许应该叫系统）进入我的视野，号称是Geek的最爱，有兴趣的自己去百度。说起来，从博客这个东西刚兴起的时候就注册过，也保持着几年一篇的速率更新着，中间民换过三四次服务商，却无一例外没有坚持下去。每次原因各不相同，但总之是各种麻烦、各种不方便。加上之前虽对Github有所了解，却在年前由于铁道部的关系，引起了强烈兴趣，于是萌生了尝试想法。</p>
+<p>年前的时候，一个叫做“<a href="http://octopress.org/">Octopress</a>”的博客平台（或许应该叫系统？框架？）进入我的视野，号称是Geek的最爱，有兴趣的自己去百度。说起来，从博客这个东西刚兴起的时候就注册过，也保持着每几年更新一篇、每几篇换一次服务商的速率“坚持”着，却无一例外没有坚持下去。每次原因各不相同，但总之是各种麻烦、各种不方便。加上之前虽对Github有所了解，却在年前由于铁道部的关系，引起了强烈兴趣，于是萌生了尝试想法。</p>
 
 <h2>其中曲折</h2>
 
