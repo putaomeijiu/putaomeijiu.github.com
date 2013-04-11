@@ -4,7 +4,7 @@
   <title><![CDATA[葡萄美酒夜光杯]]></title>
   <link href="http://putaomeijiu.github.com/atom.xml" rel="self"/>
   <link href="http://putaomeijiu.github.com/"/>
-  <updated>2013-03-14T12:43:03+08:00</updated>
+  <updated>2013-04-11T14:32:12+08:00</updated>
   <id>http://putaomeijiu.github.com/</id>
   <author>
     <name><![CDATA[葡萄美酒]]></name>
@@ -12,6 +12,607 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[NumPy学习笔记_01_数组初始化]]></title>
+    <link href="http://putaomeijiu.github.com/blog/2013/03/13/test-notebok/"/>
+    <updated>2013-03-13T14:41:00+08:00</updated>
+    <id>http://putaomeijiu.github.com/blog/2013/03/13/test-notebok</id>
+    <content type="html"><![CDATA[<div class="ipynb">
+
+<div class="ipynb">
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 class="ipynb" class="ipynb">导入函数库</h2>
+<p>2种方式：</p>
+<pre class="ipynb" class="ipynb"><code>import numpy
+import numpy as np
+</code></pre>
+<p>在IPython notebook 的 pylab 模式中，自动执行了第一种导入方式，在《Python科学计算中》推荐了第2种。看喜好了，第1种的话可能会引起名字冲突，第2种用起来不断地 <em>np.array</em> 也挺麻烦的</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 class="ipynb" class="ipynb">创建数组的 N 种方法</h2>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb" class="ipynb">从 <em>list</em> 创建</h3>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">a</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>    <span class="c">#用默认数据类型 int32</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">a_float</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c">#用64 bit双精度浮点类型</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">a_multiDimension</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]])</span>  <span class="c">#第1个参数只能是1个 list，可以是多维 list</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb" class="ipynb">等差、等比数列数组</h3>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">a_arange</span><span class="o">=</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">a_linspace</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">endpoint</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>  <span class="c">#默认 endpoint = True</span>
+<span class="n">a_logspace</span><span class="o">=</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>  <span class="c">#等比数列，看后面的结果和图片，详情见后面注：</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">a_logspace</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">array([   1.        ,    3.16227766,   10.        ,   31.6227766 ,  100.        ])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">plot</span><span class="p">(</span><span class="n">a_logspace</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">[&lt;matplotlib.lines.Line2D at 0x30f45b0&gt;]</pre>
+</div>
+</div>
+<div class="hbox output_area">
+<div class="prompt output_prompt"></div>
+<div class="output_subarea output_display_data">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXkAAAD9CAYAAABZVQdHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAHeJJREFUeJzt3XtclXWCx/EPpot5TdfUCsnalAN4AU0Pq2nout3MRW1m
+i7ZJgza1LcU2tYxKKy9ljGUXaJuYfSWZFdNuo13ViSzbOaCZOoDXNNDVxstqoKAiz/7xJIqiHM7t
+ec453/fr1WuAczjn22/q66/f+T2/J8IwDAMREQlJzawOICIi/qOSFxEJYSp5EZEQppIXEQlhKnkR
+kRCmkhcRCWEXLfm0tDS6dOlC7969635WUVFBSkoK0dHRjB49msrKyrrHFi1aRI8ePYiLi+Obb77x
+X2oREXHLRUv+vvvu47PPPqv3s+zsbKKjo9m2bRtRUVHk5OQA8Ne//pXXX3+dVatWkZ2dzeTJk/2X
+WkRE3HLRkh8yZAgdOnSo97PCwkLS09OJjIwkLS0Nl8sFgMvl4pZbbiE6Opobb7wRwzCoqKjwX3IR
+EWlUk9fki4qKcDgcADgcDgoLCwGz5GNjY+ueFxMTU/eYiIhYo3lTf6EppyBERES49TMREWmcJ6fQ
+NHkmP2DAAEpLSwEoLS1lwIABADidTkpKSuqet3nz5rrHGgpq97+efvppyzMop3IqpzK+/bbB3/+9
+50eMNbnknU4nubm5VFVVkZubS1JSEgADBw7k888/p6ysjIKCApo1a0bbtm09DiYiEu6qqiAzExYs
+8Pw1LlryqampDBo0iK1bt9KtWzd+//vfM2nSJMrKyoiJiWHPnj1MnDgRgC5dujBp0iSGDx/Ogw8+
+yMsvv+x5KhER4ZVXoH9/GDzY89e46Jr8u+++2+DPP/roowZ/PmXKFKZMmeJ5GhtJTk62OoJblNO3
+lNO3giGnXTMePGjO4Nes8e51IgzDCOh58hEREQT4LUVEgs7UqXDiBLz2mvm9p92pkhcRsZkffoCB
+A6G4GLp0MX/maXfq7BoREZuZORMyMs4UvDc0kxcRsZHCQhgzBrZuhdatz/xcM3kRkSBnGDB9Ojzz
+TP2C94ZKXkTEJpYvhwMHYNw4371mk481EBER36upgRkzzG2TzX3YzJrJi4jYQG4udO0Kt93m29fV
+B68iIharrISePWHZMvMK14bog1cRkSD129/CsGEXLnhvaCYvImKhffsgPh7WroVrrrnw83TFq4hI
+EJo0CVq1gqysiz/P0+7U7hoREYts3gz5+bBli//eQ2vyIiIWeewxc9tkx47+ew/N5EVELPD11/D9
+97B0qX/fRzN5EZEAMwyYNg3mzIGWLf37Xip5EZEAy8+HkychNdX/76XdNSIiAXTiBMTFwX/8Bwwf
+7v7v6WIoEZEgkJNjXt3alIL3hmbyIiIBcuSIWfArV0Lv3k37Xc3kRURsbv58uP32phe8NzSTFxEJ
+gPJySEiAjRvhqqua/vs61kBExMbGj4eoKHjuOc9+X8caiIjY1IYN8Nln5n1bA01r8iIifjZjBmRm
+Qrt2gX9vlbyIiB+tWAE//AATJljz/ip5ERE/qa01jy+YNw9atLAmg0peRMRP8vLMs+LHjrUug3bX
+iIj4QVUVxMTAu+/C4MHev54uhhIRsZFXXoHrr/dNwXtDM3kRER87eBAcDlizxjzGwBd0MZSIiE1M
+nWqeNvnaa757TZW8iIgN7NgBTieUlEDnzr57Xa3Ji4jYwBNPQEaGbwveG5rJi4j4SGEhjBljHl/Q
+urVvXzvgM/k333yTQYMG0b9/fzIyMgCoqKggJSWF6OhoRo8eTWVlpacvLyISVE7ft/WZZ3xf8N7w
+qOQPHTrE3LlzWbFiBUVFRWzdupXPP/+c7OxsoqOj2bZtG1FRUeTk5Pg6r4iILS1fbu6qGT/e6iT1
+eVTyl156KYZhcOTIEaqqqjh27BiXXXYZhYWFpKenExkZSVpaGi6Xy9d5RURsp6YGpk+HF16ASy6x
+Ok19Hpd8dnY23bt3p2vXrgwePBin00lRUREOhwMAh8NBYWGhT8OKiNhRbi5ccQXceqvVSc7n0Xny
++/fvZ9KkSZSUlNChQwd+/etfs3z5crc/FJg1a1bd18nJySQnJ3sSQ0TEcpWVMGsWLFsGERG+e92C
+ggIKCgq8fh2Pdtd8/PHHLF68mKVLlwKQnZ3Nrl272L59O5mZmSQmJrJu3TrmzZtHfn5+/TfU7hoR
+CSGzZ5u7ad55x7/vE9DdNUOGDGHt2rUcOnSI48eP8+mnn3LTTTfhdDrJzc2lqqqK3NxckpKSPHl5
+EZGgsG8fLFoEc+ZYneTCPCr5du3akZmZyZgxY7jhhhvo27cvw4YNY9KkSZSVlRETE8OePXuYOHGi
+r/OKiNjGrFlw333QvbvVSS5MF0OJiHigtBSGDoUtW6BjR/+/n441EBEJoMcfN+/dGoiC94ZHu2tE
+RMLZ11/D99/DL3tPbE0zeRGRJjAMePRR88PWli2tTtM4lbyISBN88IF5hWtqqtVJ3KMPXkVE3HTi
+BMTGwptvwvDhgX1vffAqIuJnOTnmzbkDXfDe0ExeRMQNhw+bBb9qFfTqFfj310xeRMSPnn8ebr/d
+moL3hmbyIiKNKC+HhATYuBGuusqaDLqRt4iIn4wfD1FR8Nxz1mXwtDt1MZSIyEVs2ACffWaeNBmM
+tCYvInIR06fDk09Cu3ZWJ/GMSl5E5AK++AJ27oQHHrA6iedU8iIiDaitNWfx8+dDixZWp/GcSl5E
+pAF5edCqFYwZY3US72h3jYjIOaqqzAufli6FQYOsTmPSxVAiIj6yaBEMGGCfgveGZvIiImc5cMA8
+hGzNGujZ0+o0Z+hiKBERH5g6FU6ehFdftTpJfSp5EREv7dgBTieUlEDnzlanqU9r8iIiXnriCcjI
+sF/Be0MzeRERoLAQxo41jy9o1crqNOfTTF5ExEOGAdOmwezZ9ix4b6jkRSTsLV8OBw+ap02GGp1C
+KSJhrabGPL4gKwsuucTqNL6nmbyIhLXcXLjiCrj1VquT+Ic+eBWRsFVZaV7wtGwZ9O9vdZqL0wev
+IiJNlJUFw4bZv+C9oZm8iISlffsgPh7WrYPu3a1O0zhd8Soi0gQTJ0KbNvDii1YncY/u8Soi4qbS
+UvjwQ9i82eok/qc1eREJO489BjNmQMeOVifxP83kRSSsrF4NGzfCe+9ZnSQwNJMXkbBx+viCOXOg
+ZUur0wSGSl5EwsYHH5hXuN51l9VJAke7a0QkLJw4Yd7x6c03Yfhwq9M0XcAvhjp69Cjjxo2jZ8+e
+xMXF4XK5qKioICUlhejoaEaPHk1lZaWnLy8i4lPZ2eBwBGfBe8Pjkn/66aeJjo5m48aNbNy4EYfD
+QXZ2NtHR0Wzbto2oqChycnJ8mVVExCOHD8PcufD881YnCTyPS37lypXMnDmTli1b0rx5c9q3b09h
+YSHp6elERkaSlpaGy+XyZVYREY88/zyMGgW9elmdJPA8WpPfvXs3I0aMICkpidLSUsaOHcvkyZNx
+OBxs2bKFli1bcuzYMWJjY/nxxx/rv6HW5EUkgMrLISHB3DZ51VVWp/FcQK94ra6uZuvWrSxYsIAR
+I0YwYcIE3n//fbcDzJo1q+7r5ORkkpOTPYkhItKoJ5+ESZOCr+ALCgooKCjw+nU83l0TGxtLaWkp
+AJ9++ilvv/02J06cIDMzk8TERNatW8e8efPIz8+v/4aayYtIgGzYADffbN63tV07q9N4J+C7a3r0
+6IHL5aK2tpaPP/6YESNG4HQ6yc3NpaqqitzcXJKSkjx9eRERr02fbs7kg73gveHxTH7r1q3ce++9
+VFdXM2LECGbPnk1tbS333HMP69evp1+/fuTl5dGmTZv6b6iZvIgEwBdfwEMPQXExtGhhdRrv6ahh
+EZFfnDpl3gjkqadg7Fir0/iG7gwlIvKLd96B1q1hzBirk1hPM3kRCSlVVRATA0uXwqBBVqfxHc3k
+RUSARYtgwIDQKnhvaCYvIiHjwAHzELI1a6BnT6vT+JY+eBWRsJeRYR4l/OqrVifxPZW8iIS1HTvA
+6YSSEujc2eo0vqc1eREJazNnwtSpoVnw3tBMXkSCnssFd9xhHl/QqpXVafxDM3kRCUuGYR5fMHt2
+6Ba8N1TyIhLUli2Dgwdh/Hirk9iTR0cNi4jYQU0NzJgBWVlwySVWp7EnzeRFJGi99RZceSXceqvV
+SexLH7yKSFCqrDQveFq2zDyMLNTpg1cRCStZWTBsWHgUvDc0kxeRoLNvH8THw7p10L271WkCQ1e8
+ikjYmDgR2rSBF1+0OkngBPRG3iIiVikthQ8/hC1brE4SHLQmLyJB5bHHzG2THTpYnSQ4aCYvIkFj
+9WrYuBHee8/qJMFDM3kRCQqGAdOmwZw50LKl1WmCh0peRILCBx+YV7jedZfVSYKLdteIiO0dPw5x
+cfC735l748ORLoYSkZCVkwMOR/gWvDc0kxcRWzt8GGJiYNUq6NXL6jTW0UxeRELS/PkwalR4F7w3
+NJMXEdsqK4PERHPb5FVXWZ3GWjrWQERCzvjx0K0bPPus1Umsp2MNRCSkbNgAn31m3rdVPKc1eRGx
+penT4cknoV07q5MEN5W8iNjOF1/Azp3wwANWJwl+KnkRsZVTp8xZ/Pz50KKF1WmCn0peRGzlnXeg
+dWsYM8bqJKFBu2tExDaqqswLn5YuhUGDrE5jL7oYSkSC3qJFMGCACt6XNJMXEVs4cABiY2HNGujZ
+0+o09qOLoUQkqGVkmEcJv/qq1UnsKeDLNadOnSIxMZFRo0YBUFFRQUpKCtHR0YwePZrKykpPX1pE
+wsyOHZCXB089ZXWS0ONxyb/88svExcUREREBQHZ2NtHR0Wzbto2oqChycnJ8FlJEQtvMmTB1KnTu
+bHWS0ONRye/evZtPPvmE+++/v+4/HwoLC0lPTycyMpK0tDRcLpdPg4pIaHK5zHX4qVOtThKaPCr5
+qVOnsmDBApo1O/PrRUVFOBwOABwOB4WFhb5JKCIh6/R9W595Blq1sjpNaGryAWXLly+nc+fOJCYm
+UlBQUPfzpnwgMGvWrLqvk5OTSU5ObmoMEQkBy5bB//0fjBtndRL7KSgoqNexnmry7pqZM2eyePFi
+mjdvTnV1NT///DNjx47l2LFjZGZmkpiYyLp165g3bx75+fnnv6F214gI5k6a3r3ht7+FW2+1Oo39
+BWx3zdy5cykvL2fnzp0sXbqU4cOHs3jxYpxOJ7m5uVRVVZGbm0tSUlKTw4hI+HjrLbjySrjlFquT
+hDavr3g9vbtm0qRJlJWVERMTw549e5g4caLX4UQkNFVWwuzZ8MIL8EuFiJ/oYigRCbhZs2D7dnNv
+vLhHV7yKSFDYu9e8Kfe6ddC9u9VpgodKXkSCwsSJ0LYtLFhgdZLgonu8iojtlZbChx/Cli1WJwkf
+OmpYRALmscdgxgzo0MHqJOFDM3kRCYjVq2HjRnj/fauThBfN5EXE7wwDHn0U5syByEir04QXlbyI
++N0HH0BtLdx1l9VJwo9214iIXx0/DnFx8LvfwbBhVqcJXrrHq4jYUk4OOBwqeKtoJi8ifnP4MMTE
+wKpV5gVQ4jnN5EXEdubPh1GjVPBW0kxeRPyirAwSE2HTJvO0SfGOZvIiYhuGAU88AQ8+qIK3mmby
+IuJT69fDlClQUQFffQXt2lmdKDRoJi8ilvrrX+Ff/9W8y9M998DatSp4O1DJi4hXTpyArCxzL3zb
+trB5MzzwAFxyidXJBHR2jYh4yDDg44/hkUegRw9Ys8bcLin2opIXkSYrKYGpU+HHH+Hll3UjbjvT
+co2IuO3QIfND1RtvNIt90yYVvN2p5EWkUTU18PrrEBtrrsGXlEBGBrRoYXUyaYyWa0TkolatMgv9
+8sthxQro08fqRNIUKnkRadCOHeYZ8Bs2wIsvwpgxEBFhdSppKi3XiEg9FRXmbfqcThg40FyaGTtW
+BR+sVPIiApg39fjP/zS3Qe7bZ96q7/HHoWVLq5OJN7RcIyJ8+625a6Z5c/jv/zZn8BIaVPIiYay8
+HGbMgK+/No8FvvtuLcuEGi3XiIShY8fgmWcgIQGuu848iuBf/kUFH4o0kxcJI4YB778P06dDUhJ8
+9x1cfbXVqcSfVPIiYWLdOnO/e2UlLF4MQ4danUgCQcs1IiHup5/g/vth5Ei4917zCGAVfPhQyYuE
+qOPHYcECiI+Hyy6DLVvM8951BHB40XKNSIgxDFi2zDwCODbW3B7Zs6fVqcQqKnmREFJcbB4BvHs3
+vPYa3Hyz1YnEalquEQkBhw7Bww/DsGFw++3meTMqeAGVvEhQq6mBV18Fh8M8lqCkBCZP1hHAcoZH
+JV9eXs6wYcOIj48nOTmZJUuWAFBRUUFKSgrR0dGMHj2ayspKn4YVkTNWrDAvZvqv/zKPA37tNejU
+yepUYjcelXyLFi1YuHAhxcXF5Ofnk5mZSUVFBdnZ2URHR7Nt2zaioqLIycnxdV6RsLd9O6SkwMSJ
+8NxzsHIl9O5tdSqxK49KvmvXriQkJADQqVMn4uPjKSoqorCwkPT0dCIjI0lLS8Plcvk0rEg4+/nn
+M1eqDhpkLs2MHq2jCOTivF6T3759O8XFxQwcOJCioiIcDgcADoeDwsJCrwOKhLtTp+Ctt8wjgA8c
+MO+rOmMGREZanUyCgVdbKCsqKrjzzjtZuHAhbdq0wTAMt35v1qxZdV8nJyeTnJzsTQyRkPXNN+YR
+wC1bmnvfr7/e6kQSKAUFBRQUFHj9OhGGu818jpMnTzJy5Ehuu+02MjIyALjjjjvIzMwkMTGRdevW
+MW/ePPLz8+u/YUSE238YiISrsjJzaWbNGnjhBbjrLi3LhDtPu9Oj5RrDMEhPT6dXr151BQ/gdDrJ
+zc2lqqqK3NxckpKSPHl5kbB19Cg8/TQkJprbIjdvhtRUFbx4zqOZ/DfffMPQoUPp06cPEb/80zdv
+3jwGDx7MPffcw/r16+nXrx95eXm0adOm/htqJi9yHsOApUvNtfbBg+H55yE62upUYieedqfHyzWe
+UsmL1Ld2rbnuXl0NL70EQ4ZYnUjsKKDLNSLivb174b77YNQoSE+HwkIVvPieSl4kwI4fN5djeveG
+yy83jwBOS9MRwOIfOoVSJEAMAz76CP7936FXL/if/4EePaxOJaFOJS8SAJs2mbfe27cPcnLgH//R
+6kQSLrRcI+JHBw7Av/0b/MM/wJgx5hHAKngJJJW8iB+cPAmLFkFcHDRrBqWl8NBD0Fz/7SwBpn/k
+RHzs88/NuzNFRcGXX5r3WBWxikpexEe2bjU/VN28GbKyzK2RulJVrKblGhEvHTkCjz5qHv87dCj8
+5S/wT/+kghd7UMmLeOjUKXjzTfMI4MOHzZtoT5umI4DFXrRcI+KB1avNowjatIFPPoF+/axOJNIw
+lbxIE+zaZR4B7HKZRwD/8z9rWUbsTcs1Im44ehSefBL69zevVi0thTvvVMGL/ankRS6ithby8syz
+3X/4Ab7/Hp56Clq1sjqZiHu0XCNyAYWF5rp7TQ289565e0Yk2GgmL3KO//1fGDcORo+GCRPM9XcV
+vAQrlbzIL6qrYe5c6NMHrrzSPAJ4/HjzWAKRYKXlGglLR47Axo3mgWGn/7e42Dw8zOWCv/s7qxOK
++IZu/ychrbYWduyoX+YbNpinQ/bqBX37mjP3vn3Nm3i0b291YpGG6R6vEvZ+/tks8rPL/C9/gU6d
+6pd5375w7bW6E5MEF5W8hI3aWti580yRny71n34yT3w8XeSnZ+eXXWZ1YhHvqeQlJFVUmHdVOrvM
+N22CDh3OFPnpGfp112l2LqFLJS9BrbbWPDLg3LXzffvMG2+cXeZ9+pglLxJOVPISNCorzbXys5db
+Nm2Cdu3OXzu/7jrdTUkEVPJiQ4YBP/54/tr5nj3m7PzsMu/dG/72b61OLGJfKnmx1NGjZ2bnZ+8/
+b9u2fpn36QM9e2p2LtJUKnkJCMOAsrLz18537zYP8Tp37bxTJ6sTi4QGlbz43LFj5uz87DLfuNE8
+gfHctfOePaFFC6sTi4Qulbx4zDDMmfi5a+dlZeat7c5dbrn8cqsTi4Qflby4parKPKPl3LXzyMjz
+y9zh0OxcxC5U8lKPYZi7WM5dO9+1y1xaOfdCos6drU4sIhejkg9j1dVQUnL+ckvz5uevnTsc8Dd/
+Y3ViEWkqlXwIqK42j8A9csQ8bOv01xf7fvdu87Z0PXqcv9zStavVf0ci4isqeQsZhnkV54UK2d3S
+BvOo2/btzas/T399se+vuMKcnUdGWjsGIuJfKnkP1dS4P2u+0PcVFXDppRcuZHdLu2VLq0dDROwq
+7EreMMzljcYKuLGSrq52f9Z8oe/bttUVnCLiX7Yp+dWrVzNhwgRqamqYPHkyDz/8cP03jIjg1Cmj
+bnnDm1l0s2aelfLZ37duDRER5/99FBQUkJyc7Muh8Qvl9C3l9K1gyBkMGcHzkvf5/HPKlCm88cYb
+XH311dx8882kpqbS6Zxr21u0MK+abKyEe/S4+OP+XIcOlv/jldO3lNO3giFnMGT0hk9L/siRIwAM
+HToUgJtuugmXy8XIkSPrPe/ECd3cQUQkEJr58sWKiopwOBx138fFxfHnP//5vOep4EVEAsOna/Ir
+V67krbfe4t133wUgJyeHPXv28Oyzz555w4YWwEVEpFGWr8kPGDCAadOm1X1fXFzMLbfcUu85dto+
+KSIS6ny6XNO+fXvA3GGza9cuVqxYgdPp9OVbiIhIE/h8d81LL73EhAkTOHnyJJMnTz5vZ42IiASO
+T2fyADfeeCOlpaXk5uaSnZ1Njx49eOWVVxp87uOPP861115L//792bx5s6+juGX16tXExsZeMGdB
+QQHt27cnMTGRxMREnnvuuYBnTEtLo0uXLvTu3fuCz7HDWDaW0w5jWV5ezrBhw4iPjyc5OZklS5Y0
++Dyrx9OdnHYYz+rqapxOJwkJCSQlJbFw4cIGn2f1eLqT0w7jCXDq1CkSExMZNWpUg483eSwNP0lI
+SDC++uorY9euXUZMTIyxf//+eo+7XC5j8ODBxsGDB40lS5YYI0eO9FcUr3J++eWXxqhRoyzJdtrq
+1auN7777zujVq1eDj9tlLBvLaYex3Lt3r7F+/XrDMAxj//79xjXXXGP8/PPP9Z5jh/F0J6cdxtMw
+DOPo0aOGYRhGdXW1ER8fb2zbtq3e43YYT8NoPKddxjMrK8u4++67G8ziyVj6fCYP9ffLX3311XX7
+5c/mcrn41a9+RceOHUlNTaW0tNQfUbzOCdZ/WDxkyBA6dOhwwcftMJbQeE6wfiy7du1KQkICAJ06
+dSI+Pp61a9fWe44dxtOdnGD9eAK0atUKgMrKSmpqaog85ypFO4wnNJ4TrB/P3bt388knn3D//fc3
+mMWTsfRLybuzX76wsJC4uLi67y+//HJ27NjhjzgX5E7OiIgIvv32WxISEnjkkUcCntEddhhLd9ht
+LLdv305xcTEDBw6s93O7jeeFctplPGtra+nbty9dunThoYceolu3bvUet8t4NpbTDuM5depUFixY
+QLNmDVezJ2Ppl5J3h2EY5/1JZcc99P369aO8vJyioiLi4uKYMmWK1ZHOo7FsuoqKCu68804WLlxI
+69at6z1mp/G8WE67jGezZs3YsGED27dv5/XXX2f9+vX1HrfLeDaW0+rxXL58OZ07dyYxMfGC/0Xh
+yVj6peQHDBhQ7wOB4uJikpKS6j3H6XRSUlJS9/3+/fu59tpr/RHngtzJ2bZtW1q1akWLFi1IT0+n
+qKiI48ePBzRnY+wwlu6wy1iePHmSO+64g9/85jekpKSc97hdxrOxnHYZz9O6d+/Obbfddt6Sp13G
+87QL5bR6PL/99lv++Mc/cs0115Camsqf/vQn7r333nrP8WQs/VLy7uyXdzqd/OEPf+DgwYMsWbKE
+2NhYf0TxOudPP/1U9yfnsmXL6NOnT4NreVayw1i6ww5jaRgG6enp9OrVi4yMjAafY4fxdCenHcbz
+wIEDHD58GICDBw/yxRdfnPcHkh3G052cVo/n3LlzKS8vZ+fOnSxdupThw4fz9ttv13uOJ2Ppt1PQ
+G9ov/8YbbwAwYcIEBg4cyA033MD1119Px44dycvL81cUr3Lm5+eTnZ1N8+bN6dOnD1lZWQHPmJqa
+yldffcWBAwfo1q0bs2fP5uTJk3UZ7TKWjeW0w1iuWbOGvLw8+vTpQ2JiImD+y1VWVlaX0w7j6U5O
+O4zn3r17GTduHKdOnaJr1648+uijXHHFFbb7d92dnHYYz7OdXobxdiwDftMQEREJHMs+eBUREf9T
+yYuIhDCVvIhICFPJi4iEMJW8iEgIU8mLiISw/wf/neIeCf12uAAAAABJRU5ErkJggg==
+"></img>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb" class="ipynb">其它数组初始化_（0、1、空）_</h3>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">a_empty</span><span class="o">=</span><span class="n">empty</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="nb">int</span><span class="p">)</span>  <span class="c">#生成指定形状的数组，只分配内存，不赋值，速度快。</span>
+<span class="n">a_zero</span><span class="o">=</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="nb">int</span><span class="p">)</span>      <span class="c">#生成指定形状的数组，全部初始化为 0</span>
+<span class="n">a_one</span><span class="o">=</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="nb">int</span><span class="p">)</span>        <span class="c">#生成指定形状的数组，全部初始化为 1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">b_empty</span><span class="o">=</span><span class="n">empty_like</span><span class="p">(</span><span class="n">a_zero</span><span class="p">)</span>
+<span class="n">b_zero</span><span class="o">=</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">a_zero</span><span class="p">)</span>
+<span class="n">b_one</span><span class="o">=</span><span class="n">ones_like</span><span class="p">(</span><span class="n">a_zero</span><span class="p">)</span>       <span class="c">#生成同形状的数组，效果同： b_one=ones(a_zero.shape, a.dtype)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb" class="ipynb">从字符串创建数组</h3>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">s</span><span class="o">=</span><span class="s">&#39;abcdefgh&#39;</span>
+<span class="n">c_string</span><span class="o">=</span><span class="n">fromstring</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">int8</span><span class="p">)</span>             <span class="c"># 恰好为各字母的 ascii 码，也可以指定其它类型</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">c_string</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">array([ 97,  98,  99, 100, 101, 102, 103, 104], dtype=int8)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb" class="ipynb">通过程序创建数组</h3>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">c_func</span><span class="o">=</span><span class="n">fromfunction</span><span class="p">(</span><span class="n">func</span><span class="p">,(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>     <span class="c">#这个比较有意思，用法很奇妙</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">c_func</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">array([[  1.,   2.,   3.,   4.,   5.,   6.,   7.,   8.,   9.],
+       [  2.,   4.,   6.,   8.,  10.,  12.,  14.,  16.,  18.],
+       [  3.,   6.,   9.,  12.,  15.,  18.,  21.,  24.,  27.],
+       [  4.,   8.,  12.,  16.,  20.,  24.,  28.,  32.,  36.],
+       [  5.,  10.,  15.,  20.,  25.,  30.,  35.,  40.,  45.],
+       [  6.,  12.,  18.,  24.,  30.,  36.,  42.,  48.,  54.],
+       [  7.,  14.,  21.,  28.,  35.,  42.,  49.,  56.,  63.],
+       [  8.,  16.,  24.,  32.,  40.,  48.,  56.,  64.,  72.],
+       [  9.,  18.,  27.,  36.,  45.,  54.,  63.,  72.,  81.]])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>注：</p>
+<ul>
+<li><em>arange([start,] stop[, step,], dtype=None)</em>  数组中包含起始值，不包含结束值</li>
+<li><em>linspace(start, stop, num=50, endpoint=True, retstep=False)</em>  可以包含结束值</li>
+<li><em>logspace(0, 2, 5)</em>  创建的是从$10^0$到$10^2$之间第比的5个元素数组  </li>
+<li><em>typeDict</em> 可以显示 <em>numpy</em> 中所有的基本数据类型和对应的字符串（一对多）   <ul>
+<li>用 <em>set(typeDict.values())</em> 可以去除重复，一个不错的技巧</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 class="ipynb" class="ipynb">数组形状</h3>
+<ul>
+<li>数组有 <em>shape</em> 属性，其值为 <em>元组 ( tuple )</em>   </li>
+<li>通过修改 <em>shape</em> 属性，可以修改形状，-1为自动（见下面示例）   </li>
+<li>通过 <em>reshape()</em> 方法在当前数组基础上建立一个新数组，两个数组共享内存，对一个数组值的修改会影响另一个   </li>
+<li>
+<p>数组的形状中 <code>9,</code>  和 <code>9,1</code> 是不一样的。        </p>
+<pre class="ipynb" class="ipynb"><code>a.shape=9,     #一维数组 
+a.shape=9,1   #二维数组
+</code></pre>
+</li>
+</ul>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">d</span><span class="o">=</span><span class="n">a_multiDimension</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">d</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[14]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">array([[ 1,  2,  3],
+       [ 4,  5,  6],
+       [ 7,  8,  9],
+       [10, 11, 12]])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">d</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">(4, 3)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">d</span><span class="o">.</span><span class="n">shape</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">d</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">array([[ 1,  2,  3,  4,  5,  6],
+       [ 7,  8,  9, 10, 11, 12]])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">d</span><span class="o">.</span><span class="n">shape</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">d</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[19]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">e</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">e</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">array([[ 1,  2,  3,  4,  5,  6],
+       [ 7,  8,  9, 10, 11, 12]])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[22]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">7</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="mi">44</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="input_area box-flex1">
+<div class="highlight-ipynb"><pre class="ipynb" class="ipynb"><span class="n">e</span>
+</pre></div>
+
+</div>
+</div>
+<div class="vbox output_wrapper">
+<div class="output vbox">
+<div class="hbox output_area">
+<div class="prompt output_prompt">Out[25]:</div>
+<div class="output_subarea output_pyout">
+<pre class="ipynb" class="ipynb">array([[ 1,  2,  3,  4,  5,  6],
+       [44,  8,  9, 10, 11, 12]])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 class="ipynb" class="ipynb">结语</h2>
+<p>之所以花这么大气力写如此简单的一点东西的笔记主要有以下方面的原因：</p>
+<ul>
+<li>对 <em>IPython notebook</em> 不熟悉，以此来熟悉环境   </li>
+<li>试一下这篇博文如何通过 <em>Octopress</em> 发表，主要以下几个重点：  <ul>
+<li>代码高亮的问题  </li>
+<li>不知会不会有有 <em>css</em> 的问题    </li>
+<li><em>mathjax</em> 的问题</li>
+</ul>
+</li>
+<li>以前不管是 <em>C</em> 语言， <em>C#</em> 语言，对数组的声明、初始化，每次要用的时候都要现翻书，总是记不住，很奇怪。</li>
+</ul>
+<p>但是很郁闷的是，写读书笔记太耗时间了，不写又印象不深刻 。</p>
+</div>
+
+</div>
+
+</div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GitHub上安装Octopress心得]]></title>
